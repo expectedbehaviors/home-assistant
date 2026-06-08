@@ -1,0 +1,50 @@
+# Baseline Home Assistant values. Override ingress hosts, persistence, and TZ in your deployment values.
+# Chart: https://github.com/pajikos/home-assistant-helm-chart
+
+home-assistant:
+  replicaCount: 1
+  image:
+    repository: homeassistant/home-assistant
+    pullPolicy: IfNotPresent
+    tag: latest
+  env:
+    - name: TZ
+      value: UTC
+  service:
+    type: ClusterIP
+    port: 8080
+  ingress:
+    enabled: true
+    external: false
+    className: ""
+    annotations:
+      external-dns.alpha.kubernetes.io/target: example.com
+      nginx.org/websocket-services: home-assistant
+    hosts:
+      - host: home-assistant.example.com
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls: []
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
+    limits:
+      cpu: "1"
+      memory: 1Gi
+  configuration:
+    enabled: false
+    trusted_proxies:
+      - 10.0.0.0/8
+      - 172.16.0.0/12
+      - 192.168.0.0/16
+      - 127.0.0.0/8
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 5Gi
+    storageClass: ""
+    existingClaim: ""
+  controller:
+    type: Deployment
