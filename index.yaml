@@ -1,0 +1,28 @@
+apiVersion: v1
+entries:
+  home-assistant:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-06-10T02:40:59.28144823Z"
+    dependencies:
+    - name: home-assistant
+      repository: https://pajikos.github.io/home-assistant-helm-chart
+      version: 0.3.43
+    description: Home Assistant on Kubernetes. Wrapper around the maintained pajikos
+      chart.
+    digest: 00b18688034ae982c1cb8be4a008dbfe9df312d6958a91951f97ecdbfd5a98b9
+    home: https://www.home-assistant.io
+    keywords:
+    - home-assistant
+    - homeassistant
+    - iot
+    - automation
+    kubeVersion: '>=1.22.0-0'
+    name: home-assistant
+    sources:
+    - https://github.com/pajikos/home-assistant-helm-chart
+    type: application
+    urls:
+    - https://expectedbehaviors.github.io/home-assistant/home-assistant-1.0.0.tgz
+    version: 1.0.0
+generated: "2026-06-10T02:40:59.279303212Z"
