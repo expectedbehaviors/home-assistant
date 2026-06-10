@@ -3,7 +3,7 @@ name: home-assistant
 description: Home Assistant on Kubernetes. Wrapper around the maintained pajikos chart.
 type: application
 version: 1.0.0
-appVersion: "2024.1"
+appVersion: "1.0.0"
 kubeVersion: ">=1.22.0-0"
 keywords:
   - home-assistant
